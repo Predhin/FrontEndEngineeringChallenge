@@ -1,0 +1,11 @@
+<section>
+  <ng-container *ngIf="error | async as errorMessage">
+    <div
+      *ngIf="errorMessage"
+      class="alert alert-danger text-center fixed-bottom"
+      role="alert"
+    >
+      <strong>Error: </strong> <small>{{ errorMessage }}</small>
+    </div>
+  </ng-container>
+</section>

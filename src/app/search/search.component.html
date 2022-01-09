@@ -1,0 +1,80 @@
+<section>
+  <div class="row">
+    <div class="col-6">
+      <div class="form-group">
+        <input
+          type="text"
+          [ngModel]="q"
+          #input
+          class="form-control"
+          id="search"
+          (input)="updateSearchResult(input.value)"
+          aria-describedby="searchHelp"
+          placeholder="Search"
+        />
+        <small id="searchHelp" class="form-text text-muted"
+          >Enter a search query to view the filtered result.</small
+        >
+      </div>
+    </div>
+    <div class="col-2 mt-2">
+      <div
+        class="spinner-border spinner-border-sm"
+        role="status"
+        *ngIf="appService.isLoading()"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <ng-container *ngIf="results | async as list">
+    <div class="row search-results" *ngIf="list.length > 0; else noResults">
+      <div class="col-12">
+        <table class="table table-bordered search-results">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Picture</th>
+              <th scope="col">Name</th>
+              <th scope="col">Gender</th>
+              <th scope="col">Company</th>
+              <th scope="col">Address</th>
+              <th scope="col">Phone</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="
+                let item of list;
+                let index = index;
+                trackBy: trackByFuntion
+              "
+            >
+              <th scope="row">{{ index }}</th>
+              <td>
+                <div class="text-center">
+                  <img src="{{ item.picture }}" class="rounded" alt="..." />
+                </div>
+              </td>
+              <td>{{ item.name }}</td>
+              <td>{{ item.gender }}</td>
+              <td>{{ item.company }}</td>
+              <td>
+                <address>{{ item.address }}</address>
+              </td>
+              <td>
+                <a href="tel:{{ item.phone }}">{{ item.phone }}</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #noResults>
+    <div class="alert alert-info text-center" role="alert">
+      No Results found!
+    </div>
+  </ng-template>
+</section>
