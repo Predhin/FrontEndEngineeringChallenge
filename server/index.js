@@ -7,7 +7,7 @@ const server = http.createServer(async (req, res) => {
 
   // /api/searchResults : GET
   if (req.url === '/api/search' && req.method === 'GET') {
-    // get the searchResults.
+    // get the search results.
     const searchResults = await new Controller().getInfos();
     // set the status code, and content-type
     res.writeHead(200, { 'Content-Type': 'application/json' });
@@ -20,7 +20,7 @@ const server = http.createServer(async (req, res) => {
     try {
       // get id from url
       const id = req.url.split('?q=')[1];
-      // get searchResult
+      // get search result
       const searchResult = await new Controller().getInfo(id);
       // set the status code and content-type
       res.writeHead(200, { 'Content-Type': 'application/json' });

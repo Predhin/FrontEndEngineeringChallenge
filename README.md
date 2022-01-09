@@ -34,5 +34,4 @@ Run `npm run dev` to start the application. Navigate to `http://localhost:4200/`
 ## TODO
 
 - [ ] Unit testing
-- [ ] improve Code Comments
 - [ ] Containarize app
