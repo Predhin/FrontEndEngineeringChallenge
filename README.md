@@ -21,20 +21,18 @@ Create an app to search a list of data that keeps a search input text query in s
 
 ## Solution
 
-This application is build with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2. The backend server is running on port 5000 which is hosting the endpoint for search.
+This application is build with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2. The backend server is running on port 5000 which is hosting the endpoint for search(http://localhost:5000/api/search). All the features mentioned above are implemented.
 
 ## Installation
 
 Run `npm i` to install all dependencies of application.
 
-## Development server
+## Run application
 
-Run `npm run dev` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
+Run `npm run dev` to start the application. Navigate to `http://localhost:4200/`.
 
 ## TODO
 
 - [ ] Unit testing
 - [ ] improve Code Comments
 - [ ] Containarize app
-

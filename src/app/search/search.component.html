@@ -4,11 +4,10 @@
       <div class="form-group">
         <input
           type="text"
-          [ngModel]="q"
-          #input
+          [(ngModel)]="q"
           class="form-control"
           id="search"
-          (input)="updateSearchResult(input.value)"
+          (input)="updateSearchResult(q)"
           aria-describedby="searchHelp"
           placeholder="Search"
         />

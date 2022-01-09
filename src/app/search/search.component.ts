@@ -22,7 +22,7 @@ export class SearchComponent implements OnInit {
     private route: ActivatedRoute,
     public appService: AppService) { }
   ngOnInit() {
-    // this.q = this.route.snapshot.queryParamMap.get("q") as string;
+    Promise.resolve(() => { this.q = this.route.snapshot.queryParamMap.get("q") as string; })
     this.results = this.route.queryParamMap.pipe(
       map(query => {
         return query.get("q") as string;
